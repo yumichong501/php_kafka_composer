@@ -2,7 +2,7 @@
 /**
  * Class Kafka
  */
-namespace yumichong501\php_kafka;
+namespace php_kafka;
 
 class Kafka
 {
@@ -30,9 +30,9 @@ class Kafka
      * creater
      */
     public function producer($data){
-        $conf = new RdKafka\Conf();
+        $conf = new \RdKafka\Conf();
         $conf->set('metadata.broker.list', $this->broker_list);
-        $producer = new RdKafka\Producer($conf);
+        $producer = new \RdKafka\Producer($conf);
         $topic = $producer->newTopic($this->topic);
         $topic->produce(RD_KAFKA_PARTITION_UA, $this->partition, json_encode($data));
 
@@ -49,12 +49,12 @@ class Kafka
      * customer
      */
     public function consumer(){
-        $conf = new RdKafka\Conf();
+        $conf = new \RdKafka\Conf();
         $conf->set('group.id', 0);
-        $rk = new RdKafka\Consumer($conf);
+        $rk = new \RdKafka\Consumer($conf);
         $rk->addBrokers($this->broker_list);
 
-        $topicConf = new RdKafka\TopicConf();
+        $topicConf = new \RdKafka\TopicConf();
         $topicConf->set('auto.commit.interval.ms', 2000);
         $topicConf->set('offset.store.method', 'broker');
 

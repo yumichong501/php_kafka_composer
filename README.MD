@@ -23,6 +23,7 @@ extension=rdkafka.so
 
 #### producer
 ```
+    include_once "./vendor/autoload.php";
     $param = [
         "broker_list"=>"192.168.0.154:9092",
         "topic"=>"message",
@@ -30,13 +31,14 @@ extension=rdkafka.so
         "log_file"=>"./log/kafka.log"
     ];
 
-    $kf = new \yumichong501\php_kafka\Kafka($param);
+    $kf = new \php_kafka\Kafka($param);
     $result = $kf->producer(["message"=>"tesdfs32"]);
     var_dump($result);
 ```
 
 #### customer
 ```
+    include_once "./vendor/autoload.php";
     $param = [
         "broker_list"=>"192.168.0.154:9092",
         "topic"=>"message",
@@ -44,7 +46,7 @@ extension=rdkafka.so
         "log_file"=>"./log/kafka.log"
     ];
 
-    $kf = new \yumichong501\php_kafka\Kafka($param);
+    $kf = new \php_kafka\Kafka($param);
     $result = $kf->consumer();
     var_dump($result);
 ```
