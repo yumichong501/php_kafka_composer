@@ -2,7 +2,7 @@
 /**
  * Class Kafka
  */
-namespace yumichong501\kafka;
+namespace yumichong501\php_kafka;
 
 class Kafka
 {
