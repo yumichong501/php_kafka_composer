@@ -30,7 +30,7 @@ extension=rdkafka.so
         "log_file"=>"./log/kafka.log"
     ];
 
-    $kf = new \yumichong501\kafka\Kafka($param);
+    $kf = new \yumichong501\php_kafka\Kafka($param);
     $result = $kf->producer(["message"=>"tesdfs32"]);
     var_dump($result);
 ```
@@ -44,7 +44,7 @@ extension=rdkafka.so
         "log_file"=>"./log/kafka.log"
     ];
 
-    $kf = new \yumichong501\kafka\Kafka($param);
+    $kf = new \yumichong501\php_kafka\Kafka($param);
     $result = $kf->consumer();
     var_dump($result);
 ```
